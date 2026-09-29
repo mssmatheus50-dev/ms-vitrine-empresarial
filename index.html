@@ -1,0 +1,4946 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="MS Pesquisas e Comunicação Empresarial - Soluções em pesquisas, análise estratégica e divulgação empresarial em Guarapuava e região."
+    >
+
+    <title>MS Pesquisas e Comunicação Empresarial</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================================
+           CONFIGURAÇÕES GERAIS
+        ========================================================= */
+
+        :root {
+            --verde: #009b62;
+            --verde-claro: #16d78a;
+            --verde-escuro: #007849;
+
+            --azul: #071b33;
+            --azul-claro: #0d294b;
+            --azul-card: #0c2441;
+
+            --branco: #ffffff;
+            --cinza: #aebdca;
+            --cinza-claro: #e9f0f5;
+
+            --container: 1220px;
+
+            --radius: 24px;
+
+            --shadow:
+                0 20px 50px rgba(0, 0, 0, 0.18);
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 95px;
+        }
+
+
+        body {
+            font-family: "Manrope", sans-serif;
+
+            background: var(--azul);
+
+            color: var(--branco);
+
+            overflow-x: hidden;
+        }
+
+
+        body.menu-open,
+        body.modal-open {
+            overflow: hidden;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+
+        button {
+            cursor: pointer;
+        }
+
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        section {
+            position: relative;
+        }
+
+
+        .container {
+            width: min(
+                calc(100% - 48px),
+                var(--container)
+            );
+
+            margin: 0 auto;
+        }
+
+
+        .section-header {
+            max-width: 720px;
+
+            margin-bottom: 50px;
+        }
+
+
+        .section-tag {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-bottom: 16px;
+
+            color: var(--verde-claro);
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.3px;
+
+            text-transform: uppercase;
+        }
+
+
+        .section-tag::before {
+            content: "";
+
+            width: 28px;
+            height: 2px;
+
+            background: var(--verde-claro);
+        }
+
+
+        .section-title {
+            font-size: clamp(34px, 5vw, 54px);
+
+            line-height: 1.06;
+
+            letter-spacing: -2px;
+
+            font-weight: 800;
+
+            margin-bottom: 18px;
+        }
+
+
+        .section-title span {
+            color: var(--verde-claro);
+        }
+
+
+        .section-description {
+            color: var(--cinza);
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           CABEÇALHO
+        ========================================================= */
+
+        .header {
+            width: 100%;
+
+            min-height: 86px;
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            align-items: center;
+
+            background:
+                rgba(7, 27, 51, 0.93);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.06);
+        }
+
+
+        .header-inner {
+            width: min(
+                calc(100% - 48px),
+                var(--container)
+            );
+
+            margin: 0 auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            flex-shrink: 0;
+        }
+
+
+        .logo-symbol {
+            width: 47px;
+            height: 47px;
+
+            display: grid;
+
+            place-items: center;
+
+            flex-shrink: 0;
+        }
+
+
+        .logo-symbol svg {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .logo-text {
+            display: flex;
+
+            flex-direction: column;
+
+            line-height: 1.05;
+        }
+
+
+        .logo-text strong {
+            font-size: 17px;
+
+            font-weight: 800;
+        }
+
+
+        .logo-text span {
+            margin-top: 3px;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            color: var(--cinza);
+
+            letter-spacing: 0.5px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* MENU */
+
+        .nav {
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+        }
+
+
+        .nav a {
+            position: relative;
+
+            color: rgba(255,255,255,0.88);
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+
+        .nav a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -9px;
+
+            width: 0;
+            height: 2px;
+
+            border-radius: 20px;
+
+            background: var(--verde-claro);
+
+            transition: 0.25s;
+        }
+
+
+        .nav a:hover {
+            color: var(--verde-claro);
+        }
+
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+
+        /* HEADER ACTION */
+
+        .header-actions {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .header-whatsapp {
+            min-height: 44px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 0 19px;
+
+            border:
+                1px solid var(--verde-claro);
+
+            border-radius: 40px;
+
+            color: var(--verde-claro);
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            transition: 0.25s;
+        }
+
+
+        .header-whatsapp:hover {
+            background: var(--verde-claro);
+
+            color: var(--azul);
+        }
+
+
+        .menu-toggle {
+            width: 44px;
+            height: 44px;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            border: 0;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255, 255, 255, 0.07);
+        }
+
+
+        .menu-toggle span {
+            width: 20px;
+            height: 2px;
+
+            border-radius: 5px;
+
+            background: #fff;
+
+            transition: 0.25s;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            padding-top: 86px;
+
+            overflow: hidden;
+        }
+
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            left: -280px;
+            top: 180px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 155, 98, 0.15);
+
+            filter: blur(20px);
+        }
+
+
+        .hero-container {
+            min-height:
+                calc(100vh - 86px);
+
+            display: grid;
+
+            grid-template-columns:
+                1.15fr 0.85fr;
+
+            align-items: center;
+
+            gap: 55px;
+
+            padding-top: 50px;
+
+            padding-bottom: 50px;
+        }
+
+
+        .hero-content {
+            position: relative;
+
+            z-index: 3;
+        }
+
+
+        .hero-badge {
+            width: fit-content;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-bottom: 23px;
+
+            padding: 8px 14px;
+
+            border:
+                1px solid rgba(22,215,138,0.3);
+
+            border-radius: 30px;
+
+            color: var(--verde-claro);
+
+            background:
+                rgba(22,215,138,0.07);
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--verde-claro);
+
+            box-shadow:
+                0 0 15px var(--verde-claro);
+        }
+
+
+        .hero h1 {
+            max-width: 750px;
+
+            font-size:
+                clamp(43px, 5.4vw, 73px);
+
+            line-height: 0.99;
+
+            letter-spacing: -4px;
+
+            font-weight: 800;
+        }
+
+
+        .hero-highlight {
+            display: block;
+
+            margin-top: 8px;
+
+            color: var(--verde-claro);
+
+            font-size:
+                clamp(37px, 4.8vw, 64px);
+        }
+
+
+        .hero-description {
+            max-width: 660px;
+
+            margin-top: 27px;
+
+            color: var(--cinza-claro);
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+
+        .hero-buttons {
+            display: flex;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 13px;
+
+            margin-top: 31px;
+        }
+
+
+        .btn {
+            min-height: 49px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 0 23px;
+
+            border-radius: 40px;
+
+            border: 1px solid transparent;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            transition:
+                transform 0.25s,
+                background 0.25s,
+                color 0.25s,
+                border 0.25s;
+        }
+
+
+        .btn-primary {
+            background: var(--verde-claro);
+
+            color: var(--azul);
+        }
+
+
+        .btn-primary:hover {
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 35px
+                rgba(22, 215, 138, 0.2);
+        }
+
+
+        .btn-outline {
+            color: var(--verde-claro);
+
+            border-color:
+                rgba(22,215,138,0.7);
+        }
+
+
+        .btn-outline:hover {
+            background: var(--verde-claro);
+
+            color: var(--azul);
+        }
+
+
+        .hero-features {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 24px;
+
+            margin-top: 40px;
+        }
+
+
+        .hero-feature {
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            color: var(--cinza);
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+
+        .hero-feature-icon {
+            width: 28px;
+            height: 28px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(22,215,138,0.1);
+
+            color: var(--verde-claro);
+
+            font-weight: 900;
+        }
+
+
+        /* HERO IMAGES */
+
+        .hero-gallery {
+            height: 580px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 0.82fr;
+
+            gap: 17px;
+
+            position: relative;
+        }
+
+
+        .gallery-column {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 17px;
+        }
+
+
+        .gallery-column:first-child {
+            padding-top: 35px;
+        }
+
+
+        .gallery-column:last-child {
+            padding-top: 0;
+        }
+
+
+        .gallery-card {
+            position: relative;
+
+            overflow: hidden;
+
+            background: var(--azul-card);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .gallery-card::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(7,27,51,0.16),
+                    transparent
+                );
+
+            pointer-events: none;
+        }
+
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.6s ease;
+        }
+
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+
+        .gallery-wide {
+            height: 113px;
+
+            border-radius:
+                0 0 24px 24px;
+        }
+
+
+        .gallery-circle {
+            height: 235px;
+
+            border-radius: 50%;
+        }
+
+
+        .gallery-rect {
+            height: 177px;
+
+            border-radius: 24px;
+        }
+
+
+        .gallery-square {
+            height: 170px;
+
+            border-radius: 24px;
+        }
+
+
+        .gallery-oval {
+            height: 215px;
+
+            border-radius: 100px;
+        }
+
+
+        .gallery-circle-small {
+            height: 170px;
+
+            border-radius: 50%;
+        }
+
+
+        /* =========================================================
+           SOBRE
+        ========================================================= */
+
+        .about {
+            padding: 115px 0;
+
+            background: #fff;
+
+            color: var(--azul);
+        }
+
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                0.9fr 1.1fr;
+
+            align-items: center;
+
+            gap: 80px;
+        }
+
+
+        .about-image {
+            min-height: 570px;
+
+            position: relative;
+
+            border-radius: 34px;
+
+            overflow: hidden;
+
+            background:
+                var(--cinza-claro);
+        }
+
+
+        .about-image img {
+            width: 100%;
+            height: 570px;
+
+            object-fit: cover;
+        }
+
+
+        .about-floating {
+            position: absolute;
+
+            right: 20px;
+            bottom: 20px;
+
+            width: 200px;
+
+            padding: 21px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(7,27,51,0.96);
+
+            color: #fff;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,0.2);
+        }
+
+
+        .about-floating strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: var(--verde-claro);
+
+            font-size: 20px;
+        }
+
+
+        .about-floating span {
+            font-size: 12px;
+
+            color: #cad5df;
+
+            line-height: 1.5;
+        }
+
+
+        .about .section-description {
+            color: #627385;
+        }
+
+
+        .about-values {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 13px;
+
+            margin-top: 32px;
+        }
+
+
+        .about-value {
+            min-height: 150px;
+
+            padding: 22px;
+
+            border-radius: 20px;
+
+            background: #f5f8fa;
+
+            border:
+                1px solid #e8edf1;
+        }
+
+
+        .about-value-icon {
+            width: 39px;
+            height: 39px;
+
+            margin-bottom: 16px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 12px;
+
+            background:
+                rgba(0,155,98,0.1);
+
+            color: var(--verde);
+
+            font-size: 18px;
+        }
+
+
+        .about-value strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .about-value p {
+            color: #718190;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           SERVIÇOS
+        ========================================================= */
+
+        .services {
+            padding: 115px 0;
+
+            background: #071b33;
+        }
+
+
+        .services-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 23px;
+        }
+
+
+        .service-card {
+            min-height: 390px;
+
+            padding: 38px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0d294b,
+                    #0a213c
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.07);
+
+            transition:
+                transform 0.3s,
+                border 0.3s;
+        }
+
+
+        .service-card:hover {
+            transform:
+                translateY(-6px);
+
+            border-color:
+                rgba(22,215,138,0.25);
+        }
+
+
+        .service-number {
+            position: absolute;
+
+            right: 25px;
+            top: 20px;
+
+            color:
+                rgba(255,255,255,0.04);
+
+            font-size: 90px;
+
+            font-weight: 800;
+        }
+
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+
+            display: grid;
+
+            place-items: center;
+
+            margin-bottom: 29px;
+
+            border-radius: 17px;
+
+            background:
+                rgba(22,215,138,0.1);
+
+            color: var(--verde-claro);
+
+            font-size: 28px;
+        }
+
+
+        .service-card h3 {
+            font-size: 25px;
+
+            margin-bottom: 15px;
+
+            position: relative;
+        }
+
+
+        .service-card p {
+            max-width: 520px;
+
+            color: var(--cinza);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            position: relative;
+        }
+
+
+        .service-list {
+            display: grid;
+
+            gap: 9px;
+
+            margin-top: 23px;
+        }
+
+
+        .service-list li {
+            list-style: none;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 8px;
+
+            color: #d2dce5;
+
+            font-size: 12px;
+        }
+
+
+        .service-list li::before {
+            content: "✓";
+
+            color: var(--verde-claro);
+
+            font-weight: 900;
+        }
+
+
+        .service-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 26px;
+
+            color: var(--verde-claro);
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           COMO FUNCIONA
+        ========================================================= */
+
+        .process {
+            padding: 115px 0;
+
+            background: #f7f9fb;
+
+            color: var(--azul);
+        }
+
+
+        .process .section-description {
+            color: #66798a;
+        }
+
+
+        .process-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .process-card {
+            min-height: 260px;
+
+            padding: 28px;
+
+            position: relative;
+
+            border-radius: 24px;
+
+            background: #fff;
+
+            border:
+                1px solid #e7edf2;
+
+            transition:
+                transform 0.3s,
+                box-shadow 0.3s;
+        }
+
+
+        .process-card:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 15px 45px
+                rgba(7,27,51,0.08);
+        }
+
+
+        .process-number {
+            width: 46px;
+            height: 46px;
+
+            display: grid;
+
+            place-items: center;
+
+            margin-bottom: 26px;
+
+            border-radius: 50%;
+
+            background: var(--verde);
+
+            color: #fff;
+
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+
+        .process-card h3 {
+            font-size: 17px;
+
+            margin-bottom: 11px;
+        }
+
+
+        .process-card p {
+            color: #6b7b89;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           EMPRESAS
+        ========================================================= */
+
+        .companies {
+            padding: 115px 0;
+
+            background: #071b33;
+        }
+
+
+        .company-search {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 40px;
+
+            padding: 10px;
+
+            max-width: 700px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.09);
+        }
+
+
+        .company-search input {
+            width: 100%;
+
+            padding: 0 10px;
+
+            color: #fff;
+
+            background: transparent;
+
+            border: 0;
+
+            outline: 0;
+
+            font-size: 14px;
+        }
+
+
+        .company-search input::placeholder {
+            color: #8294a5;
+        }
+
+
+        .search-button {
+            min-width: 105px;
+            height: 43px;
+
+            border: 0;
+
+            border-radius: 13px;
+
+            background: var(--verde-claro);
+
+            color: var(--azul);
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        .companies-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .company-card {
+            overflow: hidden;
+
+            border-radius: 24px;
+
+            background: var(--azul-card);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.07);
+
+            transition:
+                transform 0.3s;
+        }
+
+
+        .company-card:hover {
+            transform:
+                translateY(-5px);
+        }
+
+
+        .company-image {
+            height: 185px;
+
+            display: grid;
+
+            place-items: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0f3158,
+                    #0a2441
+                );
+        }
+
+
+        .company-placeholder {
+            width: 75px;
+            height: 75px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 20px;
+
+            background:
+                rgba(22,215,138,0.09);
+
+            color: var(--verde-claro);
+
+            font-size: 24px;
+
+            font-weight: 800;
+        }
+
+
+        .company-content {
+            padding: 23px;
+        }
+
+
+        .company-category {
+            display: inline-block;
+
+            margin-bottom: 10px;
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            color: var(--verde-claro);
+
+            background:
+                rgba(22,215,138,0.08);
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+        }
+
+
+        .company-card h3 {
+            margin-bottom: 8px;
+
+            font-size: 17px;
+        }
+
+
+        .company-card p {
+            color: var(--cinza);
+
+            font-size: 11px;
+
+            line-height: 1.65;
+        }
+
+
+        .company-coming {
+            margin-top: 18px;
+
+            color: var(--verde-claro);
+
+            font-size: 11px;
+
+            font-weight: 800;
+        }
+
+
+        .no-results {
+            display: none;
+
+            margin-top: 30px;
+
+            color: var(--cinza);
+        }
+
+
+        /* =========================================================
+           DIFERENCIAIS
+        ========================================================= */
+
+        .advantages {
+            padding: 115px 0;
+
+            background: #fff;
+
+            color: var(--azul);
+        }
+
+
+        .advantages .section-description {
+            color: #687a89;
+        }
+
+
+        .advantages-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 17px;
+        }
+
+
+        .advantage-card {
+            min-height: 235px;
+
+            padding: 28px;
+
+            border-radius: 22px;
+
+            background: #f7f9fb;
+
+            border:
+                1px solid #e7edf2;
+        }
+
+
+        .advantage-icon {
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+
+            place-items: center;
+
+            margin-bottom: 23px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(0,155,98,0.1);
+
+            color: var(--verde);
+
+            font-size: 21px;
+        }
+
+
+        .advantage-card h3 {
+            margin-bottom: 10px;
+
+            font-size: 16px;
+        }
+
+
+        .advantage-card p {
+            color: #6c7e8d;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta-section {
+            padding: 100px 0;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #009b62,
+                    #007a50
+                );
+        }
+
+
+        .cta-box {
+            display: grid;
+
+            grid-template-columns:
+                1fr auto;
+
+            align-items: center;
+
+            gap: 40px;
+        }
+
+
+        .cta-box h2 {
+            max-width: 750px;
+
+            font-size:
+                clamp(35px, 5vw, 54px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+        }
+
+
+        .cta-box p {
+            max-width: 680px;
+
+            margin-top: 15px;
+
+            color:
+                rgba(255,255,255,0.85);
+
+            font-size: 14px;
+
+            line-height: 1.75;
+        }
+
+
+        .cta-button {
+            min-width: 190px;
+
+            min-height: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 0 25px;
+
+            border-radius: 40px;
+
+            background: #fff;
+
+            color: var(--verde-escuro);
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            transition: 0.25s;
+        }
+
+
+        .cta-button:hover {
+            transform:
+                translateY(-3px);
+        }
+
+
+        /* =========================================================
+           CONTATO
+        ========================================================= */
+
+        .contact {
+            padding: 115px 0;
+
+            background: #071b33;
+        }
+
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                0.85fr 1.15fr;
+
+            gap: 60px;
+        }
+
+
+        .contact-info {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+
+            margin-top: 30px;
+        }
+
+
+        .contact-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 16px;
+
+            border-radius: 17px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.06);
+        }
+
+
+        .contact-icon {
+            width: 43px;
+            height: 43px;
+
+            display: grid;
+
+            place-items: center;
+
+            flex-shrink: 0;
+
+            border-radius: 13px;
+
+            background:
+                rgba(22,215,138,0.1);
+
+            color: var(--verde-claro);
+        }
+
+
+        .contact-item span {
+            display: block;
+
+            margin-bottom: 3px;
+
+            color: #8fa1b1;
+
+            font-size: 10px;
+        }
+
+
+        .contact-item strong {
+            font-size: 13px;
+
+            word-break: break-word;
+        }
+
+
+        /* FORM */
+
+        .contact-form {
+            padding: 35px;
+
+            border-radius: 28px;
+
+            background: #fff;
+
+            color: var(--azul);
+        }
+
+
+        .contact-form h3 {
+            margin-bottom: 24px;
+
+            font-size: 23px;
+        }
+
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 14px;
+        }
+
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #516272;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+
+            border:
+                1px solid #dfe7ed;
+
+            border-radius: 13px;
+
+            background: #f8fafb;
+
+            outline: none;
+
+            color: var(--azul);
+
+            transition: 0.25s;
+        }
+
+
+        .form-group input,
+        .form-group select {
+            height: 49px;
+
+            padding: 0 14px;
+        }
+
+
+        .form-group textarea {
+            min-height: 120px;
+
+            padding: 14px;
+
+            resize: vertical;
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--verde);
+        }
+
+
+        .form-submit {
+            width: 100%;
+            min-height: 51px;
+
+            border: 0;
+
+            border-radius: 14px;
+
+            background: var(--verde);
+
+            color: #fff;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            transition: 0.25s;
+        }
+
+
+        .form-submit:hover {
+            background:
+                var(--verde-escuro);
+        }
+
+
+        .form-note {
+            margin-top: 10px;
+
+            color: #83919e;
+
+            font-size: 10px;
+
+            text-align: center;
+        }
+
+
+        /* =========================================================
+           RODAPÉ
+        ========================================================= */
+
+        .footer {
+            padding:
+                70px 0 25px;
+
+            background: #041323;
+
+            border-top:
+                1px solid rgba(255,255,255,0.05);
+        }
+
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.6fr 1fr 1fr;
+
+            gap: 60px;
+
+            padding-bottom: 45px;
+        }
+
+
+        .footer-brand p {
+            max-width: 460px;
+
+            margin-top: 20px;
+
+            color: #8395a5;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+
+        .footer-title {
+            margin-bottom: 18px;
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+
+        .footer-links {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 11px;
+        }
+
+
+        .footer-links a,
+        .footer-links button {
+            width: fit-content;
+
+            padding: 0;
+
+            border: 0;
+
+            background: none;
+
+            color: #8294a5;
+
+            font-size: 11px;
+
+            text-align: left;
+
+            transition: 0.25s;
+        }
+
+
+        .footer-links a:hover,
+        .footer-links button:hover {
+            color: var(--verde-claro);
+        }
+
+
+        .footer-bottom {
+            padding-top: 24px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            border-top:
+                1px solid rgba(255,255,255,0.06);
+
+            color: #65798b;
+
+            font-size: 10px;
+        }
+
+
+        /* =========================================================
+           WHATSAPP FLUTUANTE
+        ========================================================= */
+
+        .whatsapp-float {
+            width: 58px;
+            height: 58px;
+
+            position: fixed;
+
+            right: 24px;
+            bottom: 24px;
+
+            z-index: 900;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: #25d366;
+
+            color: #fff;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.25);
+
+            font-size: 25px;
+
+            transition: 0.25s;
+        }
+
+
+        .whatsapp-float:hover {
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================================================
+           MODAL
+        ========================================================= */
+
+        .modal {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 2000;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(0,0,0,0.72);
+
+            backdrop-filter: blur(10px);
+        }
+
+
+        .modal.active {
+            display: flex;
+        }
+
+
+        .modal-content {
+            width: min(700px, 100%);
+
+            max-height: 85vh;
+
+            overflow-y: auto;
+
+            position: relative;
+
+            padding: 38px;
+
+            border-radius: 25px;
+
+            background: #fff;
+
+            color: var(--azul);
+        }
+
+
+        .modal-close {
+            width: 40px;
+            height: 40px;
+
+            position: absolute;
+
+            right: 18px;
+            top: 18px;
+
+            display: grid;
+
+            place-items: center;
+
+            border: 0;
+
+            border-radius: 50%;
+
+            background: #eef2f5;
+
+            color: var(--azul);
+
+            font-size: 20px;
+        }
+
+
+        .modal-content h2 {
+            padding-right: 50px;
+
+            margin-bottom: 25px;
+
+            font-size: 27px;
+        }
+
+
+        .modal-content h3 {
+            margin:
+                24px 0 8px;
+
+            font-size: 15px;
+        }
+
+
+        .modal-content p {
+            color: #617281;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           REVEAL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform:
+                translateY(20px);
+
+            transition:
+                0.7s ease;
+        }
+
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================================================
+           RESPONSIVO
+        ========================================================= */
+
+        @media (max-width: 1050px) {
+
+            .nav {
+                gap: 16px;
+            }
+
+
+            .header-whatsapp {
+                padding: 0 14px;
+            }
+
+
+            .hero-container {
+                grid-template-columns:
+                    1fr 0.8fr;
+
+                gap: 30px;
+            }
+
+
+            .about-grid {
+                gap: 45px;
+            }
+
+
+            .process-grid,
+            .advantages-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 900px) {
+
+            .header {
+                min-height: 76px;
+            }
+
+
+            .header-inner {
+                width:
+                    calc(100% - 30px);
+            }
+
+
+            .nav {
+                position: fixed;
+
+                top: 76px;
+                left: 0;
+
+                width: 100%;
+
+                height:
+                    calc(100vh - 76px);
+
+                padding: 40px 25px;
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 25px;
+
+                background: var(--azul);
+
+                transform:
+                    translateX(100%);
+
+                transition: 0.3s;
+            }
+
+
+            .nav.active {
+                transform:
+                    translateX(0);
+            }
+
+
+            .nav a {
+                font-size: 22px;
+            }
+
+
+            .nav a::after {
+                display: none;
+            }
+
+
+            .header-whatsapp {
+                display: none;
+            }
+
+
+            .menu-toggle {
+                display: flex;
+            }
+
+
+            .hero {
+                padding-top: 76px;
+            }
+
+
+            .hero-container {
+                min-height: auto;
+
+                grid-template-columns: 1fr;
+
+                padding-top: 70px;
+
+                padding-bottom: 70px;
+            }
+
+
+            .hero-gallery {
+                height: 520px;
+
+                max-width: 650px;
+
+                width: 100%;
+
+                margin: 0 auto;
+            }
+
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .about-image {
+                order: 2;
+            }
+
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .companies-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .cta-box {
+                grid-template-columns: 1fr;
+            }
+
+
+            .cta-button {
+                width: fit-content;
+            }
+
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .footer-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+
+            .footer-brand {
+                grid-column:
+                    1 / -1;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .container {
+                width:
+                    calc(100% - 32px);
+            }
+
+
+            .logo-text strong {
+                font-size: 14px;
+            }
+
+
+            .logo-text span {
+                display: none;
+            }
+
+
+            .logo-symbol {
+                width: 40px;
+                height: 40px;
+            }
+
+
+            .hero-container {
+                padding-top: 50px;
+            }
+
+
+            .hero h1 {
+                letter-spacing: -2.4px;
+            }
+
+
+            .hero-description {
+                font-size: 13px;
+            }
+
+
+            .hero-buttons {
+                align-items: stretch;
+
+                flex-direction: column;
+            }
+
+
+            .btn {
+                width: 100%;
+            }
+
+
+            .hero-features {
+                gap: 13px;
+            }
+
+
+            .hero-gallery {
+                height: 410px;
+
+                gap: 9px;
+            }
+
+
+            .gallery-column {
+                gap: 9px;
+            }
+
+
+            .gallery-column:first-child {
+                padding-top: 20px;
+            }
+
+
+            .gallery-wide {
+                height: 75px;
+            }
+
+
+            .gallery-circle {
+                height: 160px;
+            }
+
+
+            .gallery-rect {
+                height: 130px;
+            }
+
+
+            .gallery-square {
+                height: 120px;
+            }
+
+
+            .gallery-oval {
+                height: 155px;
+            }
+
+
+            .gallery-circle-small {
+                height: 120px;
+            }
+
+
+            .about,
+            .services,
+            .process,
+            .companies,
+            .advantages,
+            .contact {
+                padding:
+                    80px 0;
+            }
+
+
+            .about-image,
+            .about-image img {
+                min-height: 400px;
+
+                height: 400px;
+            }
+
+
+            .about-values {
+                grid-template-columns: 1fr;
+            }
+
+
+            .process-grid,
+            .advantages-grid,
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .company-search {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+
+            .search-button {
+                width: 100%;
+            }
+
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+
+            .contact-form {
+                padding: 24px 18px;
+            }
+
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+            }
+
+
+            .footer-brand {
+                grid-column: auto;
+            }
+
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+
+
+            .whatsapp-float {
+                right: 17px;
+                bottom: 17px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =======================================================
+         CABEÇALHO
+    ======================================================== -->
+
+    <header class="header">
+
+        <div class="header-inner">
+
+            <a href="#inicio" class="logo">
+
+                <div class="logo-symbol">
+
+                    <!--
+                    Símbolo provisório baseado na identidade visual.
+                    Posteriormente podemos substituir pelo PNG original.
+                    -->
+
+                    <svg
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+
+                        <path
+                            d="
+                            M50 7
+                            C60 15 71 18 85 18
+                            L93 30
+                            C88 60 74 81 50 94
+                            C26 81 12 60 7 30
+                            L15 18
+                            C29 18 40 15 50 7Z
+                            "
+                            stroke="#16d78a"
+                            stroke-width="8"
+                            stroke-linejoin="round"
+                        />
+
+                        <circle
+                            cx="49"
+                            cy="49"
+                            r="18"
+                            stroke="#16d78a"
+                            stroke-width="8"
+                        />
+
+                        <path
+                            d="M38 48L47 57L69 35"
+                            stroke="#16d78a"
+                            stroke-width="9"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <div class="logo-text">
+
+                    <strong>
+                        MS Pesquisas
+                    </strong>
+
+                    <span>
+                        Comunicação Empresarial
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <nav class="nav" id="nav">
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#sobre">
+                    Sobre
+                </a>
+
+                <a href="#servicos">
+                    Serviços
+                </a>
+
+                <a href="#empresas">
+                    Empresas
+                </a>
+
+                <a href="#contato">
+                    Contato
+                </a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <a
+                    class="header-whatsapp"
+                    href="https://wa.me/5542998003021?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20MS%20Pesquisas%20e%20Comunica%C3%A7%C3%A3o%20Empresarial."
+                    target="_blank"
+                    rel="noopener"
+                >
+                    ☎
+                    Fale conosco
+                </a>
+
+
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =======================================================
+         HERO
+    ======================================================== -->
+
+    <main>
+
+        <section
+            class="hero"
+            id="inicio"
+        >
+
+            <div
+                class="container hero-container"
+            >
+
+                <div
+                    class="hero-content"
+                >
+
+                    <div
+                        class="hero-badge"
+                    >
+
+                        <span
+                            class="hero-badge-dot"
+                        ></span>
+
+                        Guarapuava - PR e região
+
+                    </div>
+
+
+                    <h1>
+
+                        MS Pesquisas e
+                        Comunicação
+                        Empresarial
+
+                        <span
+                            class="hero-highlight"
+                        >
+                            Impulsionando para o Futuro.
+                        </span>
+
+                    </h1>
+
+
+                    <p
+                        class="hero-description"
+                    >
+
+                        Soluções em pesquisa,
+                        análise estratégica e
+                        divulgação empresarial
+                        para ajudar negócios de
+                        Guarapuava e região a
+                        identificar oportunidades,
+                        encontrar pontos de melhoria
+                        e conquistar mais
+                        visibilidade.
+
+                    </p>
+
+
+                    <div
+                        class="hero-buttons"
+                    >
+
+                        <a
+                            href="#contato"
+                            class="btn btn-primary"
+                        >
+                            Solicitar uma análise
+                            →
+                        </a>
+
+
+                        <a
+                            href="#servicos"
+                            class="btn btn-outline"
+                        >
+                            Conheça nossos serviços
+                        </a>
+
+                    </div>
+
+
+                    <div
+                        class="hero-features"
+                    >
+
+                        <div
+                            class="hero-feature"
+                        >
+
+                            <div
+                                class="hero-feature-icon"
+                            >
+                                ✓
+                            </div>
+
+                            Pesquisa estratégica
+
+                        </div>
+
+
+                        <div
+                            class="hero-feature"
+                        >
+
+                            <div
+                                class="hero-feature-icon"
+                            >
+                                ✓
+                            </div>
+
+                            Atendimento personalizado
+
+                        </div>
+
+
+                        <div
+                            class="hero-feature"
+                        >
+
+                            <div
+                                class="hero-feature-icon"
+                            >
+                                ✓
+                            </div>
+
+                            Foco em resultados
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GALERIA -->
+
+                <div
+                    class="hero-gallery"
+                >
+
+                    <div
+                        class="gallery-column"
+                    >
+
+                        <div
+                            class="
+                            gallery-card
+                            gallery-wide
+                            "
+                        >
+
+                            <img
+                                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=85"
+                                alt="Equipe empresarial reunida"
+                            >
+
+                        </div>
+
+
+                        <div
+                            class="
+                            gallery-card
+                            gallery-circle
+                            "
+                        >
+
+                            <img
+                                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=85"
+                                alt="Profissionais em reunião"
+                            >
+
+                        </div>
+
+
+                        <div
+                            class="
+                            gallery-card
+                            gallery-rect
+                            "
+                        >
+
+                            <img
+                                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=85"
+                                alt="Equipe trabalhando"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="gallery-column"
+                    >
+
+                        <div
+                            class="
+                            gallery-card
+                            gallery-square
+                            "
+                        >
+
+                            <img
+                                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=85"
+                                alt="Empresários em reunião"
+                            >
+
+                        </div>
+
+
+                        <div
+                            class="
+                            gallery-card
+                            gallery-oval
+                            "
+                        >
+
+                            <img
+                                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=85"
+                                alt="Profissionais felizes"
+                            >
+
+                        </div>
+
+
+                        <div
+                            class="
+                            gallery-card
+                            gallery-circle-small
+                            "
+                        >
+
+                            <img
+                                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=85"
+                                alt="Profissionais planejando"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================
+             SOBRE
+        ==================================================== -->
+
+        <section
+            class="about"
+            id="sobre"
+        >
+
+            <div
+                class="container about-grid"
+            >
+
+                <div
+                    class="about-image reveal"
+                >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=85"
+                        alt="Equipe empresarial trabalhando"
+                    >
+
+
+                    <div
+                        class="about-floating"
+                    >
+
+                        <strong>
+                            Desde 2026
+                        </strong>
+
+                        <span>
+                            Trabalhando para aproximar
+                            empresas de oportunidades,
+                            informações e novas
+                            possibilidades.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="reveal"
+                >
+
+                    <div
+                        class="section-tag"
+                    >
+                        Sobre a MS
+                    </div>
+
+
+                    <h2
+                        class="section-title"
+                    >
+
+                        Informação que ajuda
+                        empresas a
+                        <span>
+                            evoluir.
+                        </span>
+
+                    </h2>
+
+
+                    <p
+                        class="section-description"
+                    >
+
+                        A MS Pesquisas e Comunicação
+                        Empresarial atua com pesquisas,
+                        análises e divulgação de negócios.
+                        Nosso trabalho busca identificar
+                        informações relevantes para auxiliar
+                        empresas em decisões estratégicas,
+                        compreender melhor o mercado e
+                        ampliar sua visibilidade.
+
+                    </p>
+
+
+                    <div
+                        class="about-values"
+                    >
+
+                        <div
+                            class="about-value"
+                        >
+
+                            <div
+                                class="about-value-icon"
+                            >
+                                ◆
+                            </div>
+
+                            <strong>
+                                Missão
+                            </strong>
+
+                            <p>
+                                Impulsionar empresas para
+                                o futuro através de pesquisa,
+                                informação e comunicação.
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="about-value"
+                        >
+
+                            <div
+                                class="about-value-icon"
+                            >
+                                ◎
+                            </div>
+
+                            <strong>
+                                Visão
+                            </strong>
+
+                            <p>
+                                Valorizar qualidade,
+                                trabalho e desenvolvimento
+                                empresarial.
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="about-value"
+                        >
+
+                            <div
+                                class="about-value-icon"
+                            >
+                                ♡
+                            </div>
+
+                            <strong>
+                                Valores
+                            </strong>
+
+                            <p>
+                                Família, confiabilidade,
+                                respeito, segurança e
+                                comprometimento.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================
+             SERVIÇOS
+        ==================================================== -->
+
+        <section
+            class="services"
+            id="servicos"
+        >
+
+            <div class="container">
+
+                <div
+                    class="section-header reveal"
+                >
+
+                    <div
+                        class="section-tag"
+                    >
+                        Nossos serviços
+                    </div>
+
+
+                    <h2
+                        class="section-title"
+                    >
+
+                        Soluções pensadas para
+                        <span>
+                            empresas.
+                        </span>
+
+                    </h2>
+
+
+                    <p
+                        class="section-description"
+                    >
+
+                        Trabalhamos com pesquisa,
+                        análise e comunicação para
+                        oferecer informações que possam
+                        auxiliar no desenvolvimento de
+                        negócios e ampliar sua presença
+                        no mercado.
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="services-grid"
+                >
+
+                    <article
+                        class="service-card reveal"
+                    >
+
+                        <div
+                            class="service-number"
+                        >
+                            01
+                        </div>
+
+
+                        <div
+                            class="service-icon"
+                        >
+                            🔎
+                        </div>
+
+
+                        <h3>
+                            Pesquisa e Análise
+                            Empresarial
+                        </h3>
+
+
+                        <p>
+
+                            Identificamos a necessidade
+                            apresentada pela empresa e
+                            realizamos pesquisas para
+                            reunir informações que possam
+                            auxiliar na identificação de
+                            problemas, oportunidades e
+                            possíveis caminhos de melhoria.
+
+                        </p>
+
+
+                        <ul
+                            class="service-list"
+                        >
+
+                            <li>
+                                Pesquisa de mercado
+                            </li>
+
+                            <li>
+                                Comparação com concorrentes
+                            </li>
+
+                            <li>
+                                Levantamento de preços
+                            </li>
+
+                            <li>
+                                Identificação de oportunidades
+                            </li>
+
+                            <li>
+                                Relatório com resultados
+                                e recomendações
+                            </li>
+
+                        </ul>
+
+
+                        <a
+                            href="#contato"
+                            class="service-link"
+                        >
+                            Solicitar orçamento →
+                        </a>
+
+                    </article>
+
+
+
+                    <article
+                        class="service-card reveal"
+                    >
+
+                        <div
+                            class="service-number"
+                        >
+                            02
+                        </div>
+
+
+                        <div
+                            class="service-icon"
+                        >
+                            📢
+                        </div>
+
+
+                        <h3>
+                            Empresas em Destaque
+                        </h3>
+
+
+                        <p>
+
+                            Espaço destinado à apresentação
+                            de empresas e negócios parceiros
+                            de Guarapuava e região, permitindo
+                            que visitantes encontrem informações
+                            comerciais e formas de contato em
+                            um único ambiente.
+
+                        </p>
+
+
+                        <ul
+                            class="service-list"
+                        >
+
+                            <li>
+                                Perfil comercial no site
+                            </li>
+
+                            <li>
+                                Informações da empresa
+                            </li>
+
+                            <li>
+                                Contato e WhatsApp
+                            </li>
+
+                            <li>
+                                Divulgação através de QR Code
+                            </li>
+
+                            <li>
+                                Maior exposição para
+                                potenciais clientes
+                            </li>
+
+                        </ul>
+
+
+                        <a
+                            href="#contato"
+                            class="service-link"
+                        >
+                            Quero participar →
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================
+             COMO FUNCIONA
+        ==================================================== -->
+
+        <section
+            class="process"
+        >
+
+            <div class="container">
+
+                <div
+                    class="section-header reveal"
+                >
+
+                    <div
+                        class="section-tag"
+                    >
+                        Como funciona
+                    </div>
+
+
+                    <h2
+                        class="section-title"
+                    >
+
+                        Da necessidade à
+                        <span>
+                            estratégia.
+                        </span>
+
+                    </h2>
+
+
+                    <p
+                        class="section-description"
+                    >
+
+                        Um processo simples e organizado
+                        para transformar informações em
+                        possibilidades de melhoria.
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="process-grid"
+                >
+
+                    <article
+                        class="process-card reveal"
+                    >
+
+                        <div
+                            class="process-number"
+                        >
+                            01
+                        </div>
+
+                        <h3>
+                            Entendemos a necessidade
+                        </h3>
+
+                        <p>
+                            Conversamos com a empresa
+                            para compreender o cenário,
+                            a dificuldade ou o objetivo
+                            da pesquisa.
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="process-card reveal"
+                    >
+
+                        <div
+                            class="process-number"
+                        >
+                            02
+                        </div>
+
+                        <h3>
+                            Realizamos a pesquisa
+                        </h3>
+
+                        <p>
+                            Buscamos informações relevantes
+                            relacionadas ao mercado,
+                            concorrência, preços e demais
+                            pontos necessários.
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="process-card reveal"
+                    >
+
+                        <div
+                            class="process-number"
+                        >
+                            03
+                        </div>
+
+                        <h3>
+                            Analisamos os resultados
+                        </h3>
+
+                        <p>
+                            Organizamos os dados encontrados
+                            para identificar padrões,
+                            diferenças e oportunidades.
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="process-card reveal"
+                    >
+
+                        <div
+                            class="process-number"
+                        >
+                            04
+                        </div>
+
+                        <h3>
+                            Entregamos o relatório
+                        </h3>
+
+                        <p>
+                            A empresa recebe os principais
+                            resultados da pesquisa e
+                            sugestões que podem auxiliar
+                            em suas decisões.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================
+             EMPRESAS EM DESTAQUE
+        ==================================================== -->
+
+        <section
+            class="companies"
+            id="empresas"
+        >
+
+            <div class="container">
+
+                <div
+                    class="section-header reveal"
+                >
+
+                    <div
+                        class="section-tag"
+                    >
+                        Empresas em destaque
+                    </div>
+
+
+                    <h2
+                        class="section-title"
+                    >
+
+                        Descubra negócios de
+                        <span>
+                            Guarapuava e região.
+                        </span>
+
+                    </h2>
+
+
+                    <p
+                        class="section-description"
+                    >
+
+                        Este espaço será utilizado para
+                        apresentar empresas e negócios
+                        parceiros participantes da
+                        plataforma MS Pesquisas e
+                        Comunicação Empresarial.
+
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="company-search reveal"
+                >
+
+                    <input
+                        type="search"
+                        id="companySearch"
+                        placeholder="Pesquise por empresa ou categoria..."
+                        aria-label="Pesquisar empresa"
+                    >
+
+                    <button
+                        class="search-button"
+                        id="searchButton"
+                    >
+                        Buscar
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="companies-grid"
+                    id="companiesGrid"
+                >
+
+                    <article
+                        class="company-card reveal"
+                        data-name="empresa parceira comercio"
+                    >
+
+                        <div
+                            class="company-image"
+                        >
+
+                            <div
+                                class="company-placeholder"
+                            >
+                                MS
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="company-content"
+                        >
+
+                            <span
+                                class="company-category"
+                            >
+                                Em breve
+                            </span>
+
+                            <h3>
+                                Empresa Parceira
+                            </h3>
+
+                            <p>
+                                Novas empresas participantes
+                                serão apresentadas aqui com
+                                informações comerciais e
+                                formas de contato.
+                            </p>
+
+                            <div
+                                class="company-coming"
+                            >
+                                Espaço disponível
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article
+                        class="company-card reveal"
+                        data-name="servicos empresa parceira"
+                    >
+
+                        <div
+                            class="company-image"
+                        >
+
+                            <div
+                                class="company-placeholder"
+                            >
+                                +
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="company-content"
+                        >
+
+                            <span
+                                class="company-category"
+                            >
+                                Em breve
+                            </span>
+
+                            <h3>
+                                Empresa Parceira
+                            </h3>
+
+                            <p>
+                                Sua empresa poderá aparecer
+                                neste espaço e ser encontrada
+                                por visitantes da plataforma.
+                            </p>
+
+                            <div
+                                class="company-coming"
+                            >
+                                Espaço disponível
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article
+                        class="company-card reveal"
+                        data-name="negocio parceiro guarapuava"
+                    >
+
+                        <div
+                            class="company-image"
+                        >
+
+                            <div
+                                class="company-placeholder"
+                            >
+                                ★
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="company-content"
+                        >
+
+                            <span
+                                class="company-category"
+                            >
+                                Em breve
+                            </span>
+
+                            <h3>
+                                Negócio em Destaque
+                            </h3>
+
+                            <p>
+                                Empresas de diferentes
+                                segmentos poderão integrar
+                                nosso catálogo de divulgação.
+                            </p>
+
+                            <div
+                                class="company-coming"
+                            >
+                                Espaço disponível
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <p
+                    class="no-results"
+                    id="noResults"
+                >
+                    Nenhuma empresa encontrada.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================
+             DIFERENCIAIS
+        ==================================================== -->
+
+        <section
+            class="advantages"
+        >
+
+            <div class="container">
+
+                <div
+                    class="section-header reveal"
+                >
+
+                    <div
+                        class="section-tag"
+                    >
+                        Por que escolher a MS
+                    </div>
+
+
+                    <h2
+                        class="section-title"
+                    >
+
+                        Informação, proximidade e
+                        <span>
+                            confiança.
+                        </span>
+
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="advantages-grid"
+                >
+
+                    <article
+                        class="advantage-card reveal"
+                    >
+
+                        <div
+                            class="advantage-icon"
+                        >
+                            ✓
+                        </div>
+
+                        <h3>
+                            Confiabilidade
+                        </h3>
+
+                        <p>
+                            Trabalhamos com responsabilidade
+                            na coleta, organização e
+                            apresentação das informações.
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="advantage-card reveal"
+                    >
+
+                        <div
+                            class="advantage-icon"
+                        >
+                            🔎
+                        </div>
+
+                        <h3>
+                            Pesquisa estratégica
+                        </h3>
+
+                        <p>
+                            As pesquisas são direcionadas
+                            ao objetivo e às necessidades
+                            apresentadas pelo negócio.
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="advantage-card reveal"
+                    >
+
+                        <div
+                            class="advantage-icon"
+                        >
+                            🤝
+                        </div>
+
+                        <h3>
+                            Atendimento próximo
+                        </h3>
+
+                        <p>
+                            Buscamos compreender a realidade
+                            de cada cliente antes de
+                            desenvolver o trabalho.
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="advantage-card reveal"
+                    >
+
+                        <div
+                            class="advantage-icon"
+                        >
+                            ↗
+                        </div>
+
+                        <h3>
+                            Foco em oportunidades
+                        </h3>
+
+                        <p>
+                            Nosso objetivo é gerar
+                            informações que possam
+                            contribuir para decisões
+                            mais conscientes.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================
+             CTA
+        ==================================================== -->
+
+        <section
+            class="cta-section"
+        >
+
+            <div
+                class="container cta-box"
+            >
+
+                <div>
+
+                    <h2>
+                        Sua empresa está pronta
+                        para dar o próximo passo?
+                    </h2>
+
+                    <p>
+
+                        Converse com a MS Pesquisas e
+                        Comunicação Empresarial e descubra
+                        como nossos serviços podem ajudar
+                        seu negócio.
+
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="https://wa.me/5542998003021?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20melhor%20os%20servi%C3%A7os%20da%20MS%20Pesquisas%20e%20Comunica%C3%A7%C3%A3o%20Empresarial."
+                    target="_blank"
+                    rel="noopener"
+                    class="cta-button"
+                >
+                    Conversar no WhatsApp
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================
+             CONTATO
+        ==================================================== -->
+
+        <section
+            class="contact"
+            id="contato"
+        >
+
+            <div
+                class="container contact-grid"
+            >
+
+                <div
+                    class="reveal"
+                >
+
+                    <div
+                        class="section-tag"
+                    >
+                        Contato
+                    </div>
+
+
+                    <h2
+                        class="section-title"
+                    >
+
+                        Vamos conversar sobre
+                        <span>
+                            sua empresa.
+                        </span>
+
+                    </h2>
+
+
+                    <p
+                        class="section-description"
+                    >
+
+                        Preencha o formulário ou fale
+                        diretamente conosco pelo WhatsApp.
+                        O formulário abrirá uma conversa
+                        com as informações preenchidas.
+
+                    </p>
+
+
+                    <div
+                        class="contact-info"
+                    >
+
+                        <a
+                            class="contact-item"
+                            href="https://wa.me/5542998003021"
+                            target="_blank"
+                            rel="noopener"
+                        >
+
+                            <div
+                                class="contact-icon"
+                            >
+                                ☎
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    WhatsApp
+                                </span>
+
+                                <strong>
+                                    (42) 99800-3021
+                                </strong>
+
+                            </div>
+
+                        </a>
+
+
+                        <a
+                            class="contact-item"
+                            href="mailto:mssmatheus50@gmail.com"
+                        >
+
+                            <div
+                                class="contact-icon"
+                            >
+                                ✉
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    E-mail
+                                </span>
+
+                                <strong>
+                                    mssmatheus50@gmail.com
+                                </strong>
+
+                            </div>
+
+                        </a>
+
+
+                        <div
+                            class="contact-item"
+                        >
+
+                            <div
+                                class="contact-icon"
+                            >
+                                ◉
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Área de atendimento
+                                </span>
+
+                                <strong>
+                                    Guarapuava - PR e região
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <form
+                    class="contact-form reveal"
+                    id="contactForm"
+                >
+
+                    <h3>
+                        Solicite um contato
+                    </h3>
+
+
+                    <div
+                        class="form-row"
+                    >
+
+                        <div
+                            class="form-group"
+                        >
+
+                            <label for="name">
+                                Seu nome
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                required
+                                placeholder="Digite seu nome"
+                            >
+
+                        </div>
+
+
+                        <div
+                            class="form-group"
+                        >
+
+                            <label for="company">
+                                Empresa
+                            </label>
+
+                            <input
+                                type="text"
+                                id="company"
+                                placeholder="Nome da empresa"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="form-row"
+                    >
+
+                        <div
+                            class="form-group"
+                        >
+
+                            <label for="phone">
+                                Telefone
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="(42) 99999-9999"
+                            >
+
+                        </div>
+
+
+                        <div
+                            class="form-group"
+                        >
+
+                            <label for="service">
+                                Serviço
+                            </label>
+
+                            <select
+                                id="service"
+                            >
+
+                                <option
+                                    value="Pesquisa e Análise Empresarial"
+                                >
+                                    Pesquisa e Análise Empresarial
+                                </option>
+
+                                <option
+                                    value="Empresas em Destaque"
+                                >
+                                    Empresas em Destaque
+                                </option>
+
+                                <option
+                                    value="Quero mais informações"
+                                >
+                                    Quero mais informações
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="form-group"
+                    >
+
+                        <label for="message">
+                            Conte um pouco sobre sua necessidade
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Escreva sua mensagem..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="form-submit"
+                    >
+                        Enviar pelo WhatsApp
+                    </button>
+
+
+                    <p
+                        class="form-note"
+                    >
+                        Ao enviar, você será direcionado
+                        para uma conversa no WhatsApp.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =======================================================
+         RODAPÉ
+    ======================================================== -->
+
+    <footer
+        class="footer"
+    >
+
+        <div class="container">
+
+            <div
+                class="footer-grid"
+            >
+
+                <div
+                    class="footer-brand"
+                >
+
+                    <a
+                        href="#inicio"
+                        class="logo"
+                    >
+
+                        <div
+                            class="logo-symbol"
+                        >
+
+                            <svg
+                                viewBox="0 0 100 100"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+
+                                <path
+                                    d="
+                                    M50 7
+                                    C60 15 71 18 85 18
+                                    L93 30
+                                    C88 60 74 81 50 94
+                                    C26 81 12 60 7 30
+                                    L15 18
+                                    C29 18 40 15 50 7Z
+                                    "
+                                    stroke="#16d78a"
+                                    stroke-width="8"
+                                    stroke-linejoin="round"
+                                />
+
+                                <circle
+                                    cx="49"
+                                    cy="49"
+                                    r="18"
+                                    stroke="#16d78a"
+                                    stroke-width="8"
+                                />
+
+                                <path
+                                    d="M38 48L47 57L69 35"
+                                    stroke="#16d78a"
+                                    stroke-width="9"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+
+                            </svg>
+
+                        </div>
+
+
+                        <div
+                            class="logo-text"
+                        >
+
+                            <strong>
+                                MS Pesquisas
+                            </strong>
+
+                            <span>
+                                Comunicação Empresarial
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <p>
+
+                        Pesquisas, análise estratégica e
+                        comunicação empresarial para
+                        Guarapuava - PR e região.
+
+                        <br><br>
+
+                        <strong
+                            style="color:#16d78a;"
+                        >
+                            Impulsionando para o Futuro.
+                        </strong>
+
+                    </p>
+
+                </div>
+
+
+
+                <div>
+
+                    <div
+                        class="footer-title"
+                    >
+                        Navegação
+                    </div>
+
+                    <div
+                        class="footer-links"
+                    >
+
+                        <a href="#inicio">
+                            Início
+                        </a>
+
+                        <a href="#sobre">
+                            Sobre
+                        </a>
+
+                        <a href="#servicos">
+                            Serviços
+                        </a>
+
+                        <a href="#empresas">
+                            Empresas em Destaque
+                        </a>
+
+                        <a href="#contato">
+                            Contato
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <div
+                        class="footer-title"
+                    >
+                        Informações
+                    </div>
+
+                    <div
+                        class="footer-links"
+                    >
+
+                        <a
+                            href="https://wa.me/5542998003021"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            WhatsApp
+                        </a>
+
+                        <a
+                            href="mailto:mssmatheus50@gmail.com"
+                        >
+                            E-mail
+                        </a>
+
+                        <button
+                            type="button"
+                            data-modal="privacyModal"
+                        >
+                            Política de Privacidade
+                        </button>
+
+                        <button
+                            type="button"
+                            data-modal="termsModal"
+                        >
+                            Termos de Uso
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="footer-bottom"
+            >
+
+                <span>
+                    © 2026 MS Pesquisas e
+                    Comunicação Empresarial.
+                    Todos os direitos reservados.
+                </span>
+
+                <span>
+                    Guarapuava - Paraná
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =======================================================
+         WHATSAPP FLUTUANTE
+    ======================================================== -->
+
+    <a
+        class="whatsapp-float"
+        href="https://wa.me/5542998003021?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20MS%20Pesquisas%20e%20Comunica%C3%A7%C3%A3o%20Empresarial."
+        target="_blank"
+        rel="noopener"
+        aria-label="Falar pelo WhatsApp"
+        title="Fale conosco pelo WhatsApp"
+    >
+        ☎
+    </a>
+
+
+
+    <!-- =======================================================
+         MODAL PRIVACIDADE
+    ======================================================== -->
+
+    <div
+        class="modal"
+        id="privacyModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="privacyTitle"
+    >
+
+        <div
+            class="modal-content"
+        >
+
+            <button
+                class="modal-close"
+                aria-label="Fechar"
+            >
+                ×
+            </button>
+
+
+            <h2
+                id="privacyTitle"
+            >
+                Política de Privacidade
+            </h2>
+
+
+            <p>
+
+                A MS Pesquisas e Comunicação Empresarial
+                respeita a privacidade dos visitantes
+                deste site. As informações fornecidas
+                voluntariamente por meio de formulários,
+                WhatsApp ou e-mail são utilizadas para
+                responder solicitações, prestar informações
+                e manter contato relacionado aos serviços
+                oferecidos.
+
+            </p>
+
+
+            <h3>
+                Dados fornecidos pelo visitante
+            </h3>
+
+            <p>
+
+                Podemos receber informações como nome,
+                telefone, nome da empresa e conteúdo da
+                mensagem quando essas informações forem
+                fornecidas voluntariamente pelo próprio
+                usuário.
+
+            </p>
+
+
+            <h3>
+                Utilização das informações
+            </h3>
+
+            <p>
+
+                Os dados recebidos são utilizados para
+                atendimento, elaboração de propostas,
+                comunicação relacionada aos serviços
+                solicitados e melhoria do atendimento.
+
+            </p>
+
+
+            <h3>
+                Compartilhamento
+            </h3>
+
+            <p>
+
+                Não comercializamos dados pessoais.
+                Informações poderão ser compartilhadas
+                somente quando necessário para cumprimento
+                de obrigação legal ou mediante autorização
+                do titular.
+
+            </p>
+
+
+            <h3>
+                Contato
+            </h3>
+
+            <p>
+
+                Para dúvidas relacionadas à privacidade,
+                entre em contato pelo e-mail
+                mssmatheus50@gmail.com.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =======================================================
+         MODAL TERMOS
+    ======================================================== -->
+
+    <div
+        class="modal"
+        id="termsModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="termsTitle"
+    >
+
+        <div
+            class="modal-content"
+        >
+
+            <button
+                class="modal-close"
+                aria-label="Fechar"
+            >
+                ×
+            </button>
+
+
+            <h2
+                id="termsTitle"
+            >
+                Termos de Uso
+            </h2>
+
+
+            <p>
+
+                Ao acessar este site, o visitante concorda
+                em utilizar as informações disponibilizadas
+                de forma legítima e responsável.
+
+            </p>
+
+
+            <h3>
+                Informações do site
+            </h3>
+
+            <p>
+
+                Buscamos manter as informações atualizadas
+                e claras. Entretanto, conteúdos podem ser
+                alterados, corrigidos ou atualizados sempre
+                que necessário.
+
+            </p>
+
+
+            <h3>
+                Empresas participantes
+            </h3>
+
+            <p>
+
+                Empresas apresentadas na seção de destaque
+                são negócios participantes ou parceiros da
+                plataforma. A presença de uma empresa no
+                site não constitui, por si só, certificação
+                oficial, garantia absoluta de qualidade ou
+                vínculo societário com a MS Pesquisas e
+                Comunicação Empresarial.
+
+            </p>
+
+
+            <h3>
+                Pesquisas e relatórios
+            </h3>
+
+            <p>
+
+                Pesquisas e análises têm finalidade
+                informativa e de apoio à tomada de decisão.
+                Resultados empresariais podem variar e
+                dependem de diversos fatores externos e
+                internos de cada negócio.
+
+            </p>
+
+
+            <h3>
+                Propriedade do conteúdo
+            </h3>
+
+            <p>
+
+                Textos, identidade visual e demais materiais
+                próprios da MS Pesquisas e Comunicação
+                Empresarial não devem ser reproduzidos
+                comercialmente sem autorização.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =======================================================
+         JAVASCRIPT
+    ======================================================== -->
+
+    <script>
+
+        /* =====================================================
+           MENU MOBILE
+        ====================================================== */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const nav =
+            document.getElementById("nav");
+
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                const active =
+                    nav.classList.toggle("active");
+
+                document.body.classList.toggle(
+                    "menu-open",
+                    active
+                );
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    active
+                );
+
+            }
+        );
+
+
+        document
+            .querySelectorAll(".nav a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        nav.classList.remove(
+                            "active"
+                        );
+
+                        document.body.classList.remove(
+                            "menu-open"
+                        );
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    }
+                );
+
+            });
+
+
+
+        /* =====================================================
+           PESQUISA DE EMPRESAS
+        ====================================================== */
+
+        const companySearch =
+            document.getElementById(
+                "companySearch"
+            );
+
+        const searchButton =
+            document.getElementById(
+                "searchButton"
+            );
+
+        const companyCards =
+            document.querySelectorAll(
+                ".company-card"
+            );
+
+        const noResults =
+            document.getElementById(
+                "noResults"
+            );
+
+
+        function searchCompanies() {
+
+            const search =
+                companySearch.value
+                    .trim()
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(
+                        /[\u0300-\u036f]/g,
+                        ""
+                    );
+
+            let visible = 0;
+
+
+            companyCards.forEach(
+                function (card) {
+
+                    const text =
+                        (
+                            card.dataset.name +
+                            " " +
+                            card.innerText
+                        )
+                        .toLowerCase()
+                        .normalize("NFD")
+                        .replace(
+                            /[\u0300-\u036f]/g,
+                            ""
+                        );
+
+
+                    const match =
+                        text.includes(search);
+
+
+                    card.style.display =
+                        match
+                            ? "block"
+                            : "none";
+
+
+                    if (match) {
+                        visible++;
+                    }
+
+                }
+            );
+
+
+            noResults.style.display =
+                visible === 0
+                    ? "block"
+                    : "none";
+
+        }
+
+
+        companySearch.addEventListener(
+            "input",
+            searchCompanies
+        );
+
+
+        searchButton.addEventListener(
+            "click",
+            searchCompanies
+        );
+
+
+
+        /* =====================================================
+           FORMULÁRIO PARA WHATSAPP
+        ====================================================== */
+
+        const contactForm =
+            document.getElementById(
+                "contactForm"
+            );
+
+
+        contactForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document
+                        .getElementById("name")
+                        .value
+                        .trim();
+
+
+                const company =
+                    document
+                        .getElementById("company")
+                        .value
+                        .trim();
+
+
+                const phone =
+                    document
+                        .getElementById("phone")
+                        .value
+                        .trim();
+
+
+                const service =
+                    document
+                        .getElementById("service")
+                        .value;
+
+
+                const message =
+                    document
+                        .getElementById("message")
+                        .value
+                        .trim();
+
+
+                const text =
+`Olá! Vim pelo site da MS Pesquisas e Comunicação Empresarial.
+
+Nome: ${name}
+Empresa: ${company || "Não informado"}
+Telefone: ${phone || "Não informado"}
+Interesse: ${service}
+
+Mensagem:
+${message || "Gostaria de receber mais informações."}`;
+
+
+                const whatsappUrl =
+                    "https://wa.me/5542998003021?text=" +
+                    encodeURIComponent(text);
+
+
+                window.open(
+                    whatsappUrl,
+                    "_blank",
+                    "noopener"
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           MODAIS
+        ====================================================== */
+
+        const modalButtons =
+            document.querySelectorAll(
+                "[data-modal]"
+            );
+
+
+        modalButtons.forEach(
+            function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const modalId =
+                            button.dataset.modal;
+
+                        const modal =
+                            document.getElementById(
+                                modalId
+                            );
+
+
+                        modal.classList.add(
+                            "active"
+                        );
+
+
+                        document.body.classList.add(
+                            "modal-open"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        document
+            .querySelectorAll(
+                ".modal-close"
+            )
+            .forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        closeModals
+                    );
+
+                }
+            );
+
+
+        document
+            .querySelectorAll(".modal")
+            .forEach(
+                function (modal) {
+
+                    modal.addEventListener(
+                        "click",
+                        function (event) {
+
+                            if (
+                                event.target === modal
+                            ) {
+                                closeModals();
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape"
+                ) {
+                    closeModals();
+                }
+
+            }
+        );
+
+
+        function closeModals() {
+
+            document
+                .querySelectorAll(
+                    ".modal.active"
+                )
+                .forEach(
+                    function (modal) {
+
+                        modal.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+
+        /* =====================================================
+           ANIMAÇÕES AO ROLAR
+        ====================================================== */
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        document
+            .querySelectorAll(
+                ".reveal"
+            )
+            .forEach(
+                function (element) {
+
+                    observer.observe(
+                        element
+                    );
+
+                }
+            );
+
+    </script>
+
+</body>
+</html>
